@@ -4,15 +4,15 @@ const moment = require('moment')
 
 const bookingSchema = new Schema({
   _bookingId: Schema.Types.ObjectId,
-  user: { type: Schema.ObjectId, ref: 'User' },
-  bookingStart: Date,
-  bookingEnd: Date,
-  startHour: Number,
-  duration: Number,
-  recurring: [],
-  businessUnit: { type: String, required: true },
-  purpose: { type: String, required: true },
-  roomId: { type: Schema.ObjectId, ref: 'Room' }
+  user: { type: Schema.ObjectId, ref: 'User' }, // Booking User
+  bookingStart: Date, // Booking Date Start
+  bookingEnd: Date, // Booking Date End
+  startHour: Number, // Booking Hour
+  duration: Number, // Calculate from Booking Start to End
+  recurring: [], // Unusable
+  businessUnit: { type: String, required: true }, // Block Out
+  purpose: { type: String, required: true }, // Description of Booking (Booking Title)
+  roomId: { type: Schema.ObjectId, ref: 'Room' } // Location
 })
 
 // Validation to ensure a room cannot be double-booked
